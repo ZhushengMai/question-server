@@ -14,9 +14,12 @@ export class AuthService {
   ) {}
 
   async register(registerDto: RegisterDTO) {
+    // 校验密码和确认密码
     await this.userService.checkRegisterForm(registerDto);
     const { nickName, password, username, email } = registerDto;
+    // 生成盐
     const salt = makeSalt();
+    // 密码加密
     const hashPassword = encryptPassword(password, salt);
     const newUser: User = new User();
     newUser.nickName = nickName;

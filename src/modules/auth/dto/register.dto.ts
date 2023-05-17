@@ -21,7 +21,7 @@ export class RegisterDTO {
     example: '约翰史密斯',
   })
   @IsNotEmpty({ message: '请输入昵称' })
-  @IsString({ message: '名字必须是Strin类型' })
+  @IsString({ message: '名字必须是String类型' })
   readonly nickName: string;
 
   @ApiProperty({

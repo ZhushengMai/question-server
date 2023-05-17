@@ -43,13 +43,13 @@ export class User {
   //   更新时间
   @UpdateDateColumn()
   updateTime: Date;
-
+  // 外键-回答
   @OneToMany((type) => Answer, (answer) => answer.user)
   answers: Answer[];
-
+  // 外键-问题
   @OneToMany((type) => Question, (question) => question.user)
   questions: Question[];
-
+  // 外键-评论
   @OneToMany((type) => Comment, (comment) => comment.user)
   comments: Comment[];
 }

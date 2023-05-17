@@ -67,7 +67,7 @@ export class AnswerService {
       pagination,
     };
   }
-
+  // 修改回答
   async updateAnswer(updateAnswerDto: UpdateAnswerDto) {
     const { answerId } = updateAnswerDto;
     const answerToUpdate = await this.answerRepository.findOneBy({ answerId });
@@ -95,21 +95,9 @@ export class AnswerService {
   async adoptAnswer(adoptAnswerDto: AdoptAnswerDTO, userInfo) {
     const { questionId, answerId } = adoptAnswerDto;
     const question = await this.questionService.findQuestionById(questionId);
-
-    // if (userInfo.userId !== question.user.userId) {
-    //   return new NotAcceptableException('你没有此权限修改问题状态');
-    // }
-
     const answer = await this.answerRepository.findOneBy({ answerId });
     question.isSolve = true;
     answer.isAdopt = true;
-
-    // const solveAnswer = await this.answerRepository.find({
-    //   where: {
-    //     isAdopt: true,
-    //   },
-    // });
-
     await Promise.all([
       this.questionService.updateAnswerState(question),
       this.answerRepository.save(answer),

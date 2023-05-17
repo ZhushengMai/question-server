@@ -18,7 +18,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { LoginDTO } from './dto/login.dto';
 import { RegisterDTO } from './dto/register.dto';
 import { AuthGuard } from '@nestjs/passport';
-import * as svgCaptcha from 'svg-captcha';
+
 @ApiTags('注册登录')
 @Controller('auth')
 export class AuthController {
