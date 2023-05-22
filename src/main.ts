@@ -6,12 +6,12 @@ import { ValidationPipe } from '@nestjs/common';
 import { HttpExecptionFilter } from './filters/http-execption.filter';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { ConfigService } from '@nestjs/config';
+import { join } from 'path';
 
 async function bootstrap() {
   const app: NestExpressApplication = await NestFactory.create(AppModule);
   app.enableCors({
     origin: '*',
-
   });
   // app.useGlobalFilters(new HttpExecptionFilter());
   const config: ConfigService = app.get(ConfigService);

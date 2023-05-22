@@ -1,3 +1,9 @@
+# 基于NestJS和Vue的问答平台——后端
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
+
+
 ```bash
 安装依赖 pnpm i
 启动项目 pnpm run start

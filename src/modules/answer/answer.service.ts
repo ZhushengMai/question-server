@@ -25,8 +25,6 @@ export class AnswerService {
   ) {}
 
   async createAnswer(createAnswerDto: CreateAnswerDto, userInfo) {
-    console.log(userInfo.userId);
-
     const user = await this.userService.findUserById(userInfo.userId);
     const question = await this.questionService.findQuestionById(
       createAnswerDto.questionId,
@@ -56,8 +54,11 @@ export class AnswerService {
       .leftJoin('answer.question', 'question')
       .addSelect(['user.userId', 'user.nickName'])
       .leftJoin('answer.user', 'user')
+      // 开始位置
       .skip((page - 1) * pageSize)
+      // 查询条数
       .take(pageSize)
+      // 获取数据总数
       .getManyAndCount();
 
     const [list, total] = getList;

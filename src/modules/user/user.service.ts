@@ -71,23 +71,11 @@ export class UserService {
   }
 
   async updateUser(updateUserDto: UpdateUserDTO, userInfo) {
-    console.log(updateUserDto);
-
     const { userId } = updateUserDto;
     if (userInfo.userId !== userId) {
       throw new ForbiddenException('非当前用户，无法执行更新操作！');
     }
     const user = await this.userRepository.findOneBy({ userId });
-    // 如果参数中有密码，则执行修改密码
-    // if (password && passwordRepeat) {
-    //   if (password !== passwordRepeat) {
-    //     throw new NotFoundException('两次输入的密码不一致，请检查');
-    //   }
-    //   const salt = makeSalt();
-    //   const hashPassword = encryptPassword(password, salt);
-    //   user.password = hashPassword;
-    //   user.salt = salt;
-    // }
     user.introduction = updateUserDto.introduction;
     user.city = updateUserDto.city;
     user.nickName = updateUserDto.nickName;

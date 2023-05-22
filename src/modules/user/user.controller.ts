@@ -26,13 +26,10 @@ export class UserController {
     return this.userService.findUserById(userId);
   }
 
-  @UseGuards(AuthGuard('jwt'))
-  @ApiBearerAuth()
+  // @UseGuards(AuthGuard('jwt'))
+  // @ApiBearerAuth()
   @Post('updateUser')
   async updateUser(@Body() updateUserDto: UpdateUserDTO, @Req() req: Request) {
-    const userInfo = req.user;
-    console.log('出发');
-
     // return this.userService.updateUser(updateUserDto, userInfo);
     return '测试';
   }

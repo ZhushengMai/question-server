@@ -36,7 +36,6 @@ export class QuestionController {
   @Post('createFaq')
   async createFaq(@Body() createFaqDto: CreateFaqDTO, @Req() req: Request) {
     const user = req.user;
-    console.log(user);
 
     return await this.questionService.createFaq(createFaqDto, user);
   }

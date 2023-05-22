@@ -33,23 +33,23 @@ export class CommentController {
     return this.commentService.createComment(createCommentDto, userInfo);
   }
 
-  @Post('findCommentList')
-  findAll(@Body() commentListDto: CommentListDTO) {
-    return this.commentService.findAll(commentListDto);
-  }
+  // @Post('findCommentList')
+  // findAll(@Body() commentListDto: CommentListDTO) {
+  //   return this.commentService.findAll(commentListDto);
+  // }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.commentService.findOne(+id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.commentService.findOne(+id);
+  // }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
-    return this.commentService.update(+id, updateCommentDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
+  //   return this.commentService.update(+id, updateCommentDto);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.commentService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.commentService.remove(+id);
+  // }
 }
